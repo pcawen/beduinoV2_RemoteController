@@ -1,0 +1,25 @@
+{
+  "name": "node_blue",
+  "version": "1.0.0",
+  "description": "send commands through bluetooth serial port",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "testui": "NO_CONNECT=true electron ."
+  },
+  "keywords": [
+    "robotic",
+    "bluetooth",
+    "nodejs"
+  ],
+  "author": "pcawen",
+  "license": "ISC",
+  "dependencies": {
+    "electron": "^1.6.11",
+    "line-by-line": "^0.1.6",
+    "serialport": "^4.0.7"
+  },
+  "devDependencies": {
+    "electron-rebuild": "^1.5.11"
+  }
+}

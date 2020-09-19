@@ -1,0 +1,61 @@
+body {
+	font-family: monospace;
+}
+.header {
+	display: flex;
+}
+.container {
+	display: flex;
+	flex-direction: row-reverse;
+	justify-content: space-between;
+	padding: 20px;
+}
+.panel {
+	display: flex;
+    flex-direction: column;
+}
+.joint {
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 10px;
+}
+.joint_comp {
+	align-self: center;
+}
+.control_row {
+	flex-direction: row;
+    display: flex;
+}
+.control_column {
+	flex-direction: column;
+    display: flex;
+}
+.signs {
+	display: flex;
+    flex-direction: column;
+}
+.signs i {
+	display: flex;
+    justify-content: center;
+}
+.control_btn {
+	display: flex;
+    flex-direction: column;
+}
+.joint span {
+	width: 33px;
+}
+.control_row input {
+	width: 201px;
+}
+.conn-status {
+	width: 12px;
+	height: 12px;
+	border-radius: 6px;
+	background-color: red;
+	margin: 27px;
+	box-shadow: 0 0 2px black;
+}
+.connected {
+	background-color: lightgreen;
+}

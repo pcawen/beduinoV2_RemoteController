@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Beduino</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+	<div class="header">
+	  <h1>Beduino remote controller</h1>
+	  <div class="conn-status" id="conn-status"></div>
+	</div>
+    <!-- <code>//Home positions <br>
+    	|Right(Black) leg| x - |Left(White) leg-| x RA LA &nbsp;x &nbsp;x<br>
+		-0 -1 -- 2 - 3 - 4 -5 - 6 - 7 -- 8 -9 -10 11 12 13 14 15<br>
+		-8, 0, -90, 15, 15, 0, -5, 15, 170, 0, 55, 0, 0, 0, 0, 0</code> -->
+    <div class="container" id="container">
+
+    	<div class="panel">
+    		<h2>Left</h2><br>
+    		<div class="joint" data-side="left" data-joint="arm">
+				<!-- <label class="joint_comp" for="arm_l">Arm: </label> -->
+				<span class="joint_comp" id="left_arm_val">0</span>
+				<img src="./img/handBack.png" alt="" style="height: 16px"/>
+	    		<div class="control_row" id="arm_l">
+			    	<button type="button" data-dir="u">&#060;</button>
+					<input type="range" min="-140" max="180" step="4" value="0" class="slider" id="left_arm_sldr" style="transform: rotate(180deg)">
+					<button type="button" data-dir="d">&#062;</button>
+				</div>
+				<img src="./img/handFront.png" alt="" style="height: 16px"/>
+		    </div>
+		    <br/>
+    		<div class="joint" data-side="left" data-joint="hipLR">
+	    		<!-- <label class="joint_comp" for="hlr_l">Hip LR: </label> -->
+				<span class="joint_comp" id="left_hipLR_val">0</span>
+				<img src="./img/legLeftIn.png" alt="" style="height: 16px">
+	    		<div class="control_row" id="hlr_l">
+			    	<button type="button" data-dir="d">&#060;</button>
+			    	<input type="range" min="-48" max="200" step="4" value="34" class="slider" id="left_hipLR_sldr">
+			    	<button type="button" data-dir="u">&#062;</button>
+				</div>
+				<img src="./img/legLeftOut.png" alt="" style="height: 16px">
+		    </div>
+		    <div class="joint" data-side="left" data-joint="hipFB">
+	    		<!-- <label class="joint_comp" for="hfb_l">Hip FB: </label> -->
+				<span class="joint_comp" id="left_hipFB_val">0</span>
+				<img src="./img/legBack.png" alt="" style="height: 16px">
+	    		<div class="control_row" id="hfb_l">
+			    	<button type="button" data-dir="d">&#060;</button>
+			    	<input type="range" min="-120" max="160" step="4" value="20" class="slider" id="left_hipFB_sldr">
+			    	<button type="button" data-dir="u">&#062;</button>
+				</div>
+				<img src="./img/legFront.png" alt="" style="height: 16px">
+		    </div>
+		    <div class="joint" data-side="left" data-joint="knee">
+	    		<!-- <label class="joint_comp" for="knee_l">Knee: </label> -->
+				<span class="joint_comp" id="left_knee_val">0</span>
+				<img src="./img/kneeBack.png" alt="" style="height: 16px"/>
+	    		<div class="control_row" id="knee_l">
+			    	<button type="button" data-dir="u">&#060;</button>
+			    	<input type="range" min="20" max="200" step="4" value="14" class="slider" id="left_knee_sldr" style="transform: rotate(180deg)">
+			    	<button type="button" data-dir="d">&#062;</button>
+				</div>
+				<img src="./img/kneeFront.png" alt="" style="height: 16px"/>
+		    </div>
+		    <div class="joint" data-side="left" data-joint="ankleFB">
+	    		<!-- <label class="joint_comp" for="afb_l">Ankle FB: </label> -->
+				<span class="joint_comp" id="left_ankleFB_val">0</span>
+				<img src="./img/footDown.png" alt="" style="height: 16px"/>
+	    		<div class="control_row" id="afb_l">
+			    	<button type="button" data-dir="u">&#060;</button>
+			    	<input type="range" min="-92" max="200" step="4" value="36" class="slider" id="left_ankleFB_sldr" style="transform: rotate(180deg)">
+			    	<button type="button" data-dir="d">&#062;</button>
+				</div>
+				<img src="./img/footUp.png" alt="" style="height: 16px"/>
+		    </div>
+		    <div class="joint" data-side="left" data-joint="ankleLR">
+	    		<!-- <label class="joint_comp" for="alr_l">Ankle LR: </label> -->
+				<span class="joint_comp" id="left_ankleLR_val">0</span>
+				<img src="./img/footSideR.png" alt="" style="height: 16px"/>
+	    		<div class="control_row" id="alr_l">
+			    	<button type="button" data-dir="d">&#060;</button>
+			    	<input type="range" min="-100" max="64" step="4" value="19" class="slider" id="left_ankleLR_sldr">
+			    	<button type="button" data-dir="u">&#062;</button>
+				</div>
+				<img src="./img/footSideL.png" alt="" style="height: 16px">
+		    </div>
+	    </div>
+
+    	<div class="panel">
+    		<h2>Right</h2><br>
+    		<div class="joint" data-side="right" data-joint="arm">
+	    		<!-- <label class="joint_comp" for="arm_r">Arm: </label> -->
+				<span class="joint_comp" id="right_arm_val">0</span>
+				<img src="./img/handBack.png" alt="" style="height: 16px">
+	    		<div class="control_row" id="arm_r">
+			    	<button type="button" data-dir="d">&#060;</button>
+			    	<input type="range" min="-140" max="180" step="4" value="0" class="slider" id="right_arm_sldr">
+			    	<button type="button" data-dir="u">&#062;</button>
+				</div>
+				<img src="./img/handFront.png" alt="" style="height: 16px">
+		    </div>
+		    <br/>
+    		<div class="joint" data-side="right" data-joint="hipLR">
+	    		<!-- <label class="joint_comp" for="hlr_r">Hip LR: </label> -->
+				<span class="joint_comp" id="right_hipLR_val">0</span>
+				<img src="./img/legRightOut.png" alt="" style="height: 16px">
+	    		<div class="control_row" id="hlr_r">
+			    	<button type="button" data-dir="d">&#060;</button>
+			    	<input type="range" min="-140" max="96" step="4" value="8" class="slider" id="right_hipLR_sldr">
+			    	<button type="button" data-dir="u">&#062;</button>
+				</div>
+				<img src="./img/legRightIn.png" alt="" style="height: 16px">
+		    </div>
+		    <div class="joint" data-side="right" data-joint="hipFB">
+	    		<!-- <label class="joint_comp" for="hfb_r">Hip FB: </label> -->
+				<span class="joint_comp" id="right_hipFB_val">0</span>
+				<img src="./img/legBack.png" alt="" style="height: 16px">
+	    		<div class="control_row" id="hfb_r">
+			    	<button type="button" data-dir="u">&#060;</button>
+			    	<input type="range" min="-120" max="182" step="4" value="20" class="slider" id="right_hipFB_sldr" style="transform: rotate(180deg)">
+			    	<button type="button" data-dir="d">&#062;</button>
+				</div>
+				<img src="./img/legFront.png" alt="" style="height: 16px">
+		    </div>
+		    <div class="joint" data-side="right" data-joint="knee">
+	    		<!-- <label class="joint_comp" for="knee_r">Knee: </label> -->
+				<span class="joint_comp" id="right_knee_val">0</span>
+				<img src="./img/kneeBack.png" alt="" style="height: 16px">
+	    		<div class="control_row" id="knee_r">
+			    	<button type="button" data-dir="d">&#060;</button>
+			    	<input type="range" min="-100" max="150" step="4" value="150" class="slider" id="right_knee_sldr">
+			    	<button type="button" data-dir="u">&#062;</button>
+				</div>
+				<img src="./img/kneeFront.png" alt="" style="height: 16px">
+		    </div>
+		    <div class="joint" data-side="right" data-joint="ankleFB">
+	    		<!-- <label class="joint_comp" for="afb_r">Ankle FB: </label> -->
+				<span class="joint_comp" id="right_ankleFB_val">0</span>
+				<img src="./img/footDown.png" alt="" style="height: 16px">
+	    		<div class="control_row" id="afb_r">
+			    	<button type="button" data-dir="d">&#060;</button>
+			    	<input type="range" min="-140" max="144" step="4" value="20" class="slider" id="right_ankleFB_sldr">
+			    	<button type="button" data-dir="u">&#062;</button>
+				</div>
+				<img src="./img/footUp.png" alt="" style="height: 16px">
+		    </div>
+		    <div class="joint" data-side="right" data-joint="ankleLR">
+	    		<!-- <label class="joint_comp" for="alr_r">Ankle LR: </label> -->
+				<span class="joint_comp" id="right_ankleLR_val">0</span>
+				<img src="./img/footSideR.png" alt="" style="height: 16px">
+	    		<div class="control_row" id="alr_r">
+			    	<button type="button" data-dir="d">&#060;</button>
+			    	<input type="range" min="-42" max="104" step="4" value="7" class="slider" id="right_ankleLR_sldr">
+			    	<button type="button" data-dir="u">&#062;</button>
+				</div>
+				<img src="./img/footSideL.png" alt="" style="height: 16px">		    
+		    </div>
+    	</div>
+
+    </div>
+    <span id="async-reply"></span>
+	<br>
+	<div>
+		<input type="button" id="gohome" value="Home" />
+		<input type="button" id="gohome_curr_pos" value="Home from current position" />
+		<input type="button" id="read_file" value="Read file" />
+	</div>
+    <br>
+    <div>
+    	<input type="button" id="arms_up" value="Arms up" />
+		<input type="button" id="arms_down" value="Arms Down" />
+		<input type="button" id="arms_RF_LB" value="R Front/L Back" />
+    	<input type="button" id="arms_RB_LF" value="R Back/L Front" />
+	</div>
+	<br>
+    <div>
+		<input type="button" id="hip_right" value="Hip right" />
+    	<input type="button" id="hip_left" value="Hip left" />
+	</div>
+	<div>
+		<input type="button" id="start_reading" value="Start reading" />
+    	<input type="button" id="stop_reading" value="Stop reading" />
+    </div>
+    
+  </body>
+
+  <script>
+    // You can also require other files to run in this process
+    require('./renderer.js')
+  </script>
+</html>
